@@ -56,7 +56,6 @@ export class Engine {
             throw new Error('[query_wo_pool]: invalid parameter');
         }
         const promise = new Promise<any>((resolve, reject) => {
-            console.log (`MYSQL: ${sql}, ${param}`);
             conn.query (sql, param, (err, rows)=>{
                 if (err) {
                     reject (new Error(`${ErrorCode[ErrorCode.kDatabaseError]}: ${err}`));
