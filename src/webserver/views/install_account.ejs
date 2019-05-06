@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.9">
+        <title>Open Teaching Project 安装服务器</title>
+        <link rel="stylesheet" type="text/css" href="/css/font-awesome/css/all.min.css">
+        <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="/css/ui.css">
+    </head>
+    <body>
+        <nav class="navbar navbar-dark bg-dark navbar-fixed-top">
+            <a class="navbar-brand" href="javascript:void(0)">Open Teaching Project - 安装服务器</a>
+        </nav>
+        <div class="jumbotron">
+            <div class="container">
+                <h1>配置OpenTeaching管理员用户</h1>
+                <p>请输入管理员账号以及密码。</p>
+            </div>
+        </div>
+        <div class="container">	
+            <form class="form-horizontal" id="admin_account_form" role="form" method="POST" action="/install/account">
+                <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <div class="form-group has-danger">
+                            <label class="sr-only" for="account">管理员账号</label>
+                            <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                                <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-user"></i></span></div>
+                                <input type="text" name="account" class="form-control" id="account" placeholder="请输入管理员账号" value="<%= admin.user %>" required autofocus>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-control-feedback">
+                            <span class="text-danger align-middle" id="err_msg_account">
+                            <!-- Put password error message here -->    
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <div class="form-group has-danger">
+                            <label class="sr-only" for="email">管理员邮箱</label>
+                            <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                                <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-at"></i></span></div>
+                                <input type="text" name="email" class="form-control" id="email" placeholder="请输入管理员邮箱" value="<%= admin.email %>" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-control-feedback">
+                            <span class="text-danger align-middle" id="err_msg_email">
+                            <!-- Put password error message here -->    
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <div class="form-group has-danger">
+                            <label class="sr-only" for="password">管理员密码</label>
+                            <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                                <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-key"></i></span></div>
+                                <input type="password" name="password" step="1" class="form-control" placeholder="请输入管理员密码" id="password" value required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-control-feedback">
+                            <span class="text-danger align-middle" id="err_msg_password">
+                            <!-- Put port error message here -->    
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <div class="form-group has-danger">
+                            <label class="sr-only" for="password2">再次输入管理员密码</label>
+                            <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                                <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-key"></i></span></div>
+                                <input type="password" name="password2" step="1" class="form-control" placeholder="请再次输入管理员密码" id="password2" value required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-control-feedback">
+                            <span class="text-danger align-middle" id="err_msg_password2">
+                            <!-- Put port error message here -->    
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <input type="hidden" name="md5password" id="md5password" value="" required>
+                <div class="row" style="padding-top: 1rem">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <button class="btn btn-success" id="ok"><i class="fa fa-check"></i>确定</button>
+                    </div>
+                </div>
+            </form>        
+        </div>
+        <script src="/js/jquery.min.js"></script>
+        <script src="/js/bootstrap.min.js"></script>
+        <script src="/js/install.js"></script>
+        <script>
+            $(document).ready (function () {
+                new install.InstallServer('admin');
+            });
+        </script>
+    </body>
+</html>

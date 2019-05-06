@@ -1,0 +1,96 @@
+{
+    "routes": {
+        "home": {
+            "path": "/",
+            "interfaces": {
+                "homePage": {
+                    "path": "/"
+                },
+                "loginPage": {
+                    "path": "/login"
+                },
+                "registerPage": {
+                    "path": "/register"
+                },
+                "profileSettingPage": {
+                    "path": "/trust/settings/profile"
+                },
+                "resetPassSettingPage": {
+                    "path": "/trust/settings/reset"
+                }
+            }
+        },
+        "install": {
+            "path": "/install",
+            "interfaces": {
+                "home": {
+                    "method": "get",
+                    "path": "/"
+                },
+                "database": {
+                    "method": "get",
+                    "path": "/database"
+                },
+                "setup_database": {
+                    "method": "post",
+                    "path": "/database",
+                    "bodyParams": {
+                        "host": {},
+                        "port": { "type":"int" },
+                        "username": {},
+                        "password": {},
+                        "name": {}
+                    }
+                },
+                "account": {
+                    "method": "get",
+                    "path": "/account"
+                },
+                "setup_account": {
+                    "method": "post",
+                    "path": "/account",
+                    "bodyParams": {
+                        "account": {},
+                        "email": {},
+                        "md5password": {}
+                    }
+                }
+            }
+        },
+        "api": {
+            "path": "/api",
+            "interfaces": {
+                "auth": {
+                    "path": "/auth"
+                },
+                "login": {
+                    "method": "post",
+                    "path": "/login",
+                    "bodyParams": {
+                        "account": {},
+                        "md5password": {}
+                    }
+                },
+                "register": {
+                    "method": "post",
+                    "path": "/register",
+                    "bodyParams": {
+                        "account": {},
+                        "email": {},
+                        "md5password": {}
+                    }
+                },
+                "updateProfile": {
+                    "method": "post",
+                    "path": "/trust/profile",
+                    "bodyParams": {
+                        "name": {},
+                        "email": {},
+                        "gender": { "default": null, "type": "int", "enum": [0,1,2] },
+                        "mobile": { "default": "" }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.9">
+        <title>Open Teaching Project - 安装服务器</title>
+        <link rel="stylesheet" type="text/css" href="/css/font-awesome/css/all.min.css">
+        <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="/css/ui.css">
+    </head>
+    <body>
+        <nav class="navbar navbar-dark bg-dark navbar-fixed-top">
+            <a class="navbar-brand" href="javascript:void(0)">Open Teaching Project - 安装服务器</a>
+        </nav>
+        <div class="jumbotron">
+            <div class="container">
+                <h1>配置OpenTeaching数据库服务器</h1>
+                <p>请提供必要的配置参数以便OpenTeaching服务器完成数据库的配置（注意：原有的数据将全部丢失！）。</p>
+            </div>
+        </div>
+        <div class="container">	
+            <form class="form-horizontal" id="setup-database-form" role="form" method="POST" action="/install/database">
+                <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <div class="form-group has-danger">
+                            <label class="sr-only" for="host">MySQL服务器地址</label>
+                            <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                                <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-cloud"></i></span></div>
+                                <input type="text" name="host" class="form-control" id="host"
+                                        placeholder="请输入MySQL服务器地址" value="<%= db.host %>" required autofocus>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-control-feedback">
+                            <span class="text-danger align-middle" id="err_msg_host">
+                            <!-- Put password error message here -->    
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <div class="form-group has-danger">
+                            <label class="sr-only" for="port">MySQL服务器端口</label>
+                            <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                                <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-road"></i></span></div>
+                                <input type="number" name="port" step="1" class="form-control" id="port"
+                                        placeholder="请输入MySQL服务器端口号" value="<%= db.port %>" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-control-feedback">
+                            <span class="text-danger align-middle" id="err_msg_port">
+                            <!-- Put port error message here -->    
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="sr-only" for="username">MySQL用户</label>
+                            <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                                <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-user"></i></span></div>
+                                <input type="text" name="username" class="form-control" id="username"
+                                        placeholder="请输入MySQL服务器账号" value="<%= db.user %>" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-control-feedback">
+                            <span class="text-danger align-middle" id="err_msg_user">
+                            <!-- Put password error message here -->    
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="sr-only" for="password">MySQL密码</label>
+                            <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                                <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-key"></i></span></div>
+                                <input type="password" name="password" class="form-control" id="password" placeholder="请输入MySQL服务器密码" value="<%= db.password %>" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-control-feedback">
+                            <span class="text-danger align-middle" id="err_msg_password">
+                            <!-- Put password error message here -->    
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="sr-only" for="name">MySQL数据库名</label>
+                            <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                                <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-database"></i></span></div>
+                                <input type="text" name="name" class="form-control" id="name" placeholder="请输入数据库名称" value="<%= db.name %>" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-control-feedback">
+                            <span class="text-danger align-middle" id="err_msg_name">
+                            <!-- Put password error message here -->    
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="padding-top: 1rem">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <button class="btn btn-success" id="ok"><i class="fa fa-check"></i>确定</button>
+                    </div>
+                </div>
+            </form>        
+        </div>
+        <script src="/js/jquery.min.js"></script>
+        <script src="/js/bootstrap.min.js"></script>
+        <script src="/js/install.js"></script>
+        <script>
+            $(document).ready (function () {
+                new install.InstallServer('database');
+            });
+        </script>
+    </body>
+</html>

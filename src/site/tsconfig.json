@@ -1,0 +1,23 @@
+{
+    "compilerOptions": {
+        "allowJs":true,
+        "downlevelIteration": true,
+        "moduleResolution": "node",
+        "target": "es5",
+        "module": "commonjs",
+        "lib": [
+            "es2015",
+            "dom"
+        ],
+        "strict": true,
+        "outDir": "../../dist/site/compiled",
+        "sourceMap": true
+    },
+    "include": [
+        ".",
+        "../common/protocols", "static/js/popper.min.js"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}

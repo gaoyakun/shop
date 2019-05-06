@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.9">
+        <title>Open Teaching Project - 登录</title>
+        <link rel="stylesheet" type="text/css" href="/css/font-awesome/css/all.min.css">
+        <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="/css/ui.css">
+    </head>
+    <body>
+        <nav class="navbar navbar-dark bg-dark navbar-fixed-top">
+            <a class="navbar-brand" href="javascript:void(0)">Open Teaching Project</a>
+        </nav>
+        <div class="container">	
+            <div class="form-horizontal">
+                <div class="row mt-5">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <h2>登录 Open Teaching</h2>
+                        <hr>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <div class="form-group has-danger">
+                            <label class="sr-only" for="account">账号</label>
+                            <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                                <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-user"></i></span></div>
+                                <input type="text" class="form-control" id="account" placeholder="请输入账号或邮箱" required autofocus>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-control-feedback">
+                            <span class="text-danger align-middle" id="err_msg_account">
+                                <!--<i class="fa fa-close"></i> Example error message-->
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="sr-only" for="password">密码</label>
+                            <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                                <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-key"></i></span></div>
+                                <input type="password" class="form-control" id="password" placeholder="请输入密码" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-control-feedback">
+                            <span class="text-danger align-middle" id="err_msg_password">
+                            <!-- Put password error message here -->    
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6" style="padding-top: .35rem">
+                        <div class="form-check mb-2 mr-sm-2 mb-sm-0">
+                            <label class="form-check-label">
+                                <input class="form-check-input" id="remember-checkbox" type="checkbox" >
+                                <span style="padding-bottom: .15rem">记住我</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="padding-top: 1rem">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <button class="btn btn-success" id="btn-login"><i class="fa fa-sign-in-alt"></i> 登录</button>
+                        <a class="btn btn-link" id="btn-forgot" href="javascript:void(0);">忘记密码?</a>
+                        <a class="btn btn-link" id="btn-register" href="javascript:void(0);">注册账号</a>
+                    </div>
+                </div>
+            </form>        
+        </div>
+        <script src="/js/jquery.min.js"></script>
+        <script src="/js/bootstrap.min.js"></script>
+        <script src="/js/login.js"></script>
+        <script>
+            $(document).ready (function () {
+                new login.Login('login');
+            });
+        </script>
+    </body>
+</html>

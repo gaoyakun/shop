@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.9">
+        <title>Open Teaching Project - 更改密码</title>
+        <link rel="stylesheet" type="text/css" href="/css/font-awesome/css/all.min.css">
+        <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="/css/ui.css">
+    </head>
+    <body>
+        <nav class="navbar navbar-dark bg-dark navbar-fixed-top">
+            <a class="navbar-brand" href="/">Open Teaching Project</a>
+            <div class="justify-content-end">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item" style="color:#fff;font-weight:bold;">欢迎！<%= user.name %></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="container pt-4">	
+            <div class="row">
+                <div class="col-md-3 pr-4">
+                    <nav id="treeview">
+                    </nav>
+                </div>
+                <div class="col-md-9 pr-4">
+                    <div class="container-fluid">
+                        <div class="row" style="border-bottom: 1px solid #e1e4e8; padding-bottom:8px;">
+                            <h2>更改密码</h2>
+                        </div>
+                        <form id="form-change-password" autocomplete="off" role="form" method="POST" action="/settings/userprofile" style="margin-top:10px;">
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <div class="form-group">
+                                        <label for="cur-pass">当前密码:</label>
+                                        <input type="password" class="form-control" id="cur-pass" placeholder="请输入当前密码" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-control-feedback">
+                                        <span class="text-danger align-middle" id="err-msg-cur-pass"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <div class="form-group">
+                                        <label for="new-pass">新密码:</label>
+                                        <input type="password" class="form-control" id="new-pass" placeholder="请输入新密码" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-control-feedback">
+                                        <span class="text-danger align-middle" id="err-msg-new-pass"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <div class="form-group">
+                                        <label for="new-pass2">新密码:</label>
+                                        <input type="password" class="form-control" id="new-pass2" placeholder="请再次输入新密码" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-control-feedback">
+                                        <span class="text-danger align-middle" id="err-msg-new-pass"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="btn btn-success" id="btn-update-userprofile"><i class="fa fa-edit"></i>更新密码</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="/js/jquery.min.js"></script>
+        <script src="/js/bootstrap.min.js"></script>
+        <script src="/js/settings.js"></script>
+        <script>
+            $(document).ready (function() {
+                new settings.Settings ('reset');
+            });
+        </script>
+    </body>
+</html>
